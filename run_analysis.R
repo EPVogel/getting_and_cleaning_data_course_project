@@ -33,7 +33,7 @@ names(df_subjects) <- c("subject")
 
 #2 select mean and standard deviation only by using a regular expression
 # on the column names
-df_data_reduced <- df_data[grepl("(-mean)|(Mean)|(-std)", names(df_data))]
+df_data_reduced <- df_data[grepl("(-mean\\(\\))|(-std\\(\\))", names(df_data))]
 
 
 #3 Replace acitivity ids with the activity names and add the subject and activity column to the dataset

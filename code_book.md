@@ -43,7 +43,7 @@ Activity labels are read from **activity_labels.txt** into a dataframe **df_acti
 
 * The train and test dataset are merged into a single dateframe with the **bind_rows** function and stored in a dataframe **df_data**.
 * The column names of **df_data** are replaced with the names stored in the **features** column of the dataframe **df_features**.
-* From the dataframe **df_data** only the columns containing the mean and standard deviation for each measurement are selected with grepl and the regular expression **(-mean)|(Mean)|(-std)** and stored in a new dataframe **df_data_reduced**. This particular regular expression is used to cover for the ambiguity of what is meant by 'mean' - it will also include the 7 angle columns at the end as well as several columns for which no std value seems to exist.
+* From the dataframe **df_data** only the columns containing the mean and standard deviation for each measurement are selected with grepl and the regular expression **(-mean\\(\\))|(-std\\(\\))** and stored in a new dataframe **df_data_reduced**. This particular regular expression is used to cover for the ambiguity of what is meant by 'mean' - it will only include variables that contain the strings **-mean()** and **-std()**.
 * The labels and activity dataframes are joined by the activity_id. From the joined dataframe the activity column is selected and stored in the dataframe **df_labels**.
 * The columns from the dataframes **df_subjects** and **df_labels** are attached to the left side of the **df_data_reduced** dataframe.
 
