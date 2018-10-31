@@ -17,7 +17,7 @@ df_subjects_test <- read.table("UCI HAR Dataset/test/subject_test.txt", sep = "\
 #Read train data
 df_data_train <- read.table("UCI HAR Dataset/train/X_train.txt") %>% tbl_df 
 df_label_train <- read.table("UCI HAR Dataset/train/y_train.txt", sep = "\t") %>% tbl_df %>% mutate(activity_id = as.integer(V1)) %>% select(activity_id)
-df_subjects_train <- read.table("train/subject_train.txt", sep = "\t") %>% tbl_df
+df_subjects_train <- read.table("UCI HAR Dataset/train/subject_train.txt", sep = "\t") %>% tbl_df
 
 
 #merge datasets and assign column names from the feature file
@@ -33,7 +33,7 @@ names(df_subjects) <- c("subject")
 
 #2 select mean and standard deviation only by using a regular expression
 # on the column names
-df_data_reduced <- df_data[grepl("(-mean)|(-std)", names(df_data))]
+df_data_reduced <- df_data[grepl("(-mean)|(Mean)|(-std)", names(df_data))]
 
 
 #3 Replace acitivity ids with the activity names and add the subject and activity column to the dataset
