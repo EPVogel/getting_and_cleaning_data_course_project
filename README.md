@@ -6,6 +6,7 @@ Project work for Coursera Course "Getting and Cleaning Data Course Project"
 * run_analysis.R -> The analysis script that modifies the datasets to create a new tidy-dataset
 * code_book.md -> A code book that describes the data and how it is modified.
 * README.md -> this file.
+* tidy_data.txt -> the new dataset created with run_analysis.R
 
 ## Usage
 
